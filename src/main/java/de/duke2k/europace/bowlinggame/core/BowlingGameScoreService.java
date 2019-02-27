@@ -3,8 +3,6 @@ package de.duke2k.europace.bowlinggame.core;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import de.duke2k.europace.bowlinggame.InvalidScoreException;
-
 @Service
 public class BowlingGameScoreService {
 

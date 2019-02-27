@@ -8,8 +8,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.springframework.stereotype.Component;
 
-import de.duke2k.europace.bowlinggame.InvalidScoreException;
-
 @Component
 class BowlingGameScoreValidator {
 

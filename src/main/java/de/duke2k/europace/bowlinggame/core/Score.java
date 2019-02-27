@@ -10,27 +10,27 @@ import javax.annotation.Nullable;
 
 import org.apache.commons.lang3.tuple.Pair;
 
-public class Score {
+class Score {
 
-	public static final int NUMBER_OF_FRAMES = 10;
+	static final int NUMBER_OF_FRAMES = 10;
 
 	private List<Pair<Integer, Integer>> frameScores;
 
-	public Score() {
+	Score() {
 		frameScores = new ArrayList<>(NUMBER_OF_FRAMES);
 	}
 
 	@Nullable
-	public Pair<Integer, Integer> getFrameScore(@Nonnegative int position) {
+	Pair<Integer, Integer> getFrameScore(@Nonnegative int position) {
 		return frameScores.get(position);
 	}
 
-	public void addFrameScore(@Nonnull Pair<Integer, Integer> frameScore) {
+	void addFrameScore(@Nonnull Pair<Integer, Integer> frameScore) {
 		frameScores.add(frameScore);
 	}
 
 	@Nonnull
-	public Stream<Pair<Integer, Integer>> stream() {
+	Stream<Pair<Integer, Integer>> stream() {
 		return frameScores.stream();
 	}
 }

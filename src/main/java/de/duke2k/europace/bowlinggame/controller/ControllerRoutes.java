@@ -1,7 +1,10 @@
 package de.duke2k.europace.bowlinggame.controller;
 
-public class ControllerRoutes {
+class ControllerRoutes {
 
-	public static final String TOTAL_SCORE = "/totalScore";
-	public static final String SCORE_PARAMETER = "rawScore";
+	static final String TOTAL_SCORE = "/totalScore";
+	static final String SCORE_PARAMETER = "rawScore";
+
+	private ControllerRoutes() {
+	}
 }
