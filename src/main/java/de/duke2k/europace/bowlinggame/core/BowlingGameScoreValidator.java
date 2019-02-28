@@ -26,6 +26,9 @@ class BowlingGameScoreValidator {
 		for (int i = 0; i < splittedRawScore.length; i += 2) {
 			Integer left = Integer.valueOf(splittedRawScore[i]);
 			Integer right = Integer.valueOf(StringUtils.equals(splittedRawScore[i + 1], "-") ? "0" : splittedRawScore[i + 1]);
+			if (left < 0 || left > 10 || right < 0 || right > 10 || left + right > 10) {
+				throw new InvalidScoreException("Ungültige Anzahl umgeworfener Pins bei Frame " + i / 2 + "!");
+			}
 			result.addFrameScore(new ImmutablePair<>(left, right));
 		}
 		return result;
