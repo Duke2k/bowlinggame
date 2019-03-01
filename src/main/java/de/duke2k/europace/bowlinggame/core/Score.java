@@ -1,8 +1,8 @@
 package de.duke2k.europace.bowlinggame.core;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
-import java.util.stream.Stream;
 
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
@@ -13,6 +13,7 @@ import org.apache.commons.lang3.tuple.Pair;
 class Score {
 
 	static final int NUMBER_OF_FRAMES = 10;
+	static final int NUMBER_OF_PINS = 10;
 
 	private List<Pair<Integer, Integer>> frameScores;
 
@@ -22,6 +23,9 @@ class Score {
 
 	@Nullable
 	Pair<Integer, Integer> getFrameScore(@Nonnegative int position) {
+		if (frameScores.size() <= position) {
+			return null;
+		}
 		return frameScores.get(position);
 	}
 
@@ -30,7 +34,7 @@ class Score {
 	}
 
 	@Nonnull
-	Stream<Pair<Integer, Integer>> stream() {
-		return frameScores.stream();
+	Iterator<Pair<Integer, Integer>> iterator() {
+		return frameScores.iterator();
 	}
 }
