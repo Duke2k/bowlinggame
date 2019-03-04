@@ -1,6 +1,7 @@
 package de.duke2k.europace.bowlinggame.controller;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -42,6 +43,7 @@ public class ControllerTest {
 				.andExpect(status().isOk())
 				.andReturn().getResponse().getContentAsString();
 		assertEquals("20", contentAsString);
+		verify(scoreService).getTotalScore("1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1");
 	}
 
 	@Test
@@ -51,5 +53,6 @@ public class ControllerTest {
 				.andExpect(status().isBadRequest())
 				.andReturn().getResponse().getContentAsString();
 		assertEquals("{\"Ungültige Punkte\":\"Testexception\"}", contentAsString);
+		verify(scoreService).getTotalScore("-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1");
 	}
 }
