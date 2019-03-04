@@ -2,6 +2,7 @@ package de.duke2k.europace.bowlinggame.controller;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -44,6 +45,7 @@ public class ControllerTest {
 				.andReturn().getResponse().getContentAsString();
 		assertEquals("20", contentAsString);
 		verify(scoreService).getTotalScore("1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1");
+		verifyNoMoreInteractions(scoreService);
 	}
 
 	@Test
@@ -54,5 +56,6 @@ public class ControllerTest {
 				.andReturn().getResponse().getContentAsString();
 		assertEquals("{\"Ungültige Punkte\":\"Testexception\"}", contentAsString);
 		verify(scoreService).getTotalScore("-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1");
+		verifyNoMoreInteractions(scoreService);
 	}
 }

@@ -67,7 +67,7 @@ public class BowlingGameScoreValidatorTest {
 	}
 
 	@Test
-	public void validate_StrikeAmEnde_BoniFehlen() {
+	public void validate_StrikeAmEnde_BonusFehlt() {
 		try {
 			validator.validate("5,5,10,-,8,1,6,2,10,-,8,0,5,5,10,-,2,0,10,-");
 			fail("Erwartete Exception wurde nicht geworfen!");
